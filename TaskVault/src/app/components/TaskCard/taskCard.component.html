@@ -1,0 +1,20 @@
+<div class="card mb-2" >
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text mt-2">{{description}}</p>
+      </div>
+      <div class="col-auto">
+        <div class="row">
+          <div class="col" >
+            <button class="btn btn-warning mx-2" style="margin-top: 15%;"><i class="bi bi-pencil-square" (click)="handleUpdate()"></i></button>
+          </div>
+          <div class="col">
+            <button class="btn btn-danger mx-2" style="margin-top: 15%;"><i class="bi bi-trash-fill" (click)="handleDelete()"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
