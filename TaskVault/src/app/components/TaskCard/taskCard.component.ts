@@ -19,6 +19,7 @@ export class TaskCardComponent {
   }
 
   handleDelete() {
-    this.deleteClicked.emit({id: this.id});
+     this.deleteClicked.emit({ id: this.id });
+
   }
 }

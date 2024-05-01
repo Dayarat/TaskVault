@@ -8,23 +8,38 @@ import { Observable } from "rxjs";
 })
 
 export class dashBoardService {
-  getUrl = `${endpoint}/todo`;
-  updateUrl = `${endpoint}/todo`;
+  url = `${endpoint}/todo`;
   constructor(private http: HttpClient){
 
   }
 
   getDetails(): Observable<any> {
-    return this.http.get(this.getUrl);
+    return this.http.get(this.url);
   }
 
   updateDetail(reqestBody : any,id:string){
-    console.log(`${this.updateUrl}/${id}`);
+    console.log(`${this.url}/${id}`);
     const newRequest = {
       title: reqestBody.title,
       description : reqestBody.description
     }
     console.log(newRequest);
-    return this.http.put(`${this.updateUrl}/${id}`,newRequest);
+    return this.http.put(`${this.url}/${id}`,newRequest);
+  }
+  addDetails(reqestBody : any){
+    console.log(`${this.url}`);
+    const newRequest = {
+      title: reqestBody.title,
+      description : reqestBody.description
+    }
+    console.log(newRequest);
+    return this.http.post(`${this.url}`,newRequest);
+
+  }
+
+  deleteDetails(id:string){
+    console.log(`${this.url}/${id}`);
+    return this.http.delete(`${this.url}/${id}`);
+
   }
 }

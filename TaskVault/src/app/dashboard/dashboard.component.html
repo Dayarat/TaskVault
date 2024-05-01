@@ -12,8 +12,9 @@
       <input type="text" class="form-control" placeholder="Description" id="exampleInputPassword1" formControlName="description">
     </div>
   </form>
-
-  <button type="submit" class="btn btn-primary float-end" style="margin-top: 1%; margin-bottom: 2%;" (click)="isEdit ? handleComplete() : handleSubmit()">Submit</button>
+  <button type="submit" class="btn btn-primary float-end" style="margin-top: 1%; margin-bottom: 2%;" (click)="isEdit ? handleComplete($event) : handleSubmit()">
+    {{ isEdit ? 'Update' : 'Submit' }}
+  </button>
 
 </div>
 <div style="margin-top: 5%;">

@@ -50,10 +50,26 @@ export class DashboardComponent implements OnInit {
 
   handleSubmit() {
     // console.log(this.dashBoardService.getDetails());
+    console.log('handleSubmit')
+    const reqestBody = {
+      title : this.detailsFormGroup.controls.title.value ,
+      description: this.detailsFormGroup.controls.description.value
+    }
+    if(reqestBody.title !== '' && reqestBody.description !== ''){
+      const res = this.dashBoardService.addDetails(reqestBody).subscribe(
+        (data) => {
+          if(data){
+            window.location.reload();
+          }
+        }
+      );
+      console.log(res);
+    }
   }
 
-  handleComplete() {
+  handleComplete(event: any) {
     console.log('handleComplete')
+    console.log("the selected id: ",this.selectedId);
     const reqestBody = {
       title : this.detailsFormGroup.controls.title.value ,
       description: this.detailsFormGroup.controls.description.value
@@ -62,7 +78,7 @@ export class DashboardComponent implements OnInit {
       const res = this.dashBoardService.updateDetail(reqestBody,this.selectedId).subscribe(
         (data) => {
           if(data){
-            this.getAllToDoLists();
+            window.location.reload();
           }
         }
       );
@@ -75,10 +91,24 @@ export class DashboardComponent implements OnInit {
     this.detailsFormGroup.controls.title.setValue(event.title);
     this.detailsFormGroup.controls.description.setValue(event.description);
     this.selectedId = event.id;
+    console.log("selected id at first: ",this.selectedId)
   }
 
   deleteDetail(event: any){
-    console.log(event);
+    console.log("the selected id: ",event.id);
+    try{
+      const res = this.dashBoardService.deleteDetails(event.id).subscribe(
+        (data) => {
+          if(data){
+            window.location.reload();
+          }
+        }
+      );
+      console.log(res);
+    }catch(e){
+      console.log(e)
+    }
+
   }
 
   getAllToDoLists() {
