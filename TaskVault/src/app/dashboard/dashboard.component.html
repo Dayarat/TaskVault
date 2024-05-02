@@ -1,8 +1,9 @@
-<h1 class="bg-info p-3 text-xl">To Do List</h1>
+<h1 class=" p-3 text-xl rounded-top" style="background-color: #03AED2">To Do List</h1>
 
 <div>
-  <form [formGroup]="detailsFormGroup" class=" me-[70px]" style="background-color: antiquewhite; padding: 1%;">
-    <div class="mb-3 ">
+  <form [formGroup]="detailsFormGroup" class=" p-3 rounded-bottom" style="background-color: #f8d594; ">
+
+      <div class="mb-3 ">
 
       <input type="text" class="form-control" placeholder="Title" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="title">
 
@@ -11,14 +12,18 @@
 
       <input type="text" class="form-control" placeholder="Description" id="exampleInputPassword1" formControlName="description">
     </div>
+
+
+
   </form>
-  <button type="submit" class="btn btn-primary float-end" style="margin-top: 1%; margin-bottom: 2%;" (click)="isEdit ? handleComplete($event) : handleSubmit()">
+  <button type="submit" class="btn  float-end mt-1 mb-2 me-1" style="background-color: #03AED2 "(click)="isEdit ? handleComplete($event) : handleSubmit()">
     {{ isEdit ? 'Update' : 'Submit' }}
   </button>
 
+
 </div>
-<div style="margin-top: 5%;">
-  <h2 class="p-3 text-xl">Pending Tasks...</h2>
+<div class="mt-5">
+  <h2 class="p-3 text-l">Pending Tasks...</h2>
 
   <div *ngFor="let detail of allDetails">
     <app-taskCard [title]="detail.title" [description]="detail.description" [id]="detail.id" (updateClicked)="updateDetail($event)" (deleteClicked)="deleteDetail($event)"></app-taskCard>

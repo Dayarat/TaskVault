@@ -1,17 +1,17 @@
 <div class="card mb-2" >
   <div class="card-body">
-    <div class="row">
-      <div class="col">
+    <div class="row ">
+      <div class="col-sm">
         <h5 class="card-title">{{title}}</h5>
         <p class="card-text mt-2">{{description}}</p>
       </div>
-      <div class="col-auto">
+      <div class="col-sm-auto">
         <div class="row">
           <div class="col" >
-            <button class="btn btn-warning mx-2" style="margin-top: 15%;"><i class="bi bi-pencil-square" (click)="handleUpdate()"></i></button>
+            <button class="btn me-4 mt-2" style=" background-color: #f8d594; " (click)="handleUpdate()"><i class="bi bi-pencil-square" ></i></button>
           </div>
           <div class="col">
-            <button class="btn btn-danger mx-2" style="margin-top: 15%;"><i class="bi bi-trash-fill" (click)="handleDelete()"></i></button>
+            <button class="btn btn-danger me-4 mt-2" (click)="handleDelete()"><i class="bi bi-trash-fill"></i></button>
           </div>
         </div>
       </div>
